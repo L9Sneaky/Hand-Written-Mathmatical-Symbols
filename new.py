@@ -12,7 +12,6 @@ mnist = tf.keras.datasets.mnist
 
 model = Sequential()
 
-
 model.add(Flatten())
 
 model.add(Dense(64))

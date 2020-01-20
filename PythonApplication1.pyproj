@@ -7141,6 +7141,7 @@
     <Content Include="New folder\sigma\sigma_91380.jpg" />
     <Content Include="New folder\sigma\sigma_91447.jpg" />
     <Content Include="New folder\sigma\sigma_91995.jpg" />
+    <Content Include="Untitled.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in

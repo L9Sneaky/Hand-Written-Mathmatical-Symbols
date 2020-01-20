@@ -18,6 +18,7 @@ for category in CATAGORIES:
         img_array = cv2.imread(os.path.join(path,img))
 
 
+
 IMG_SIZE = 45
 #plt.imshow(new_array)
 #plt.show()
