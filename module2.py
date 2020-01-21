@@ -28,29 +28,29 @@ model.add(Flatten())
 
 model.add(Dense(64))
 model.add(Activation("relu"))
-
-
-model.add(Dense(128))
-model.add(Activation("relu"))
-
+#model.add(Dropout(0.5))
 
 model.add(Dense(128))
 model.add(Activation("relu"))
+#model.add(Dropout(0.5))
 
+model.add(Dense(128))
+model.add(Activation("relu"))
+#model.add(Dropout(0.5))
 
 model.add(Dense(64))
 model.add(Activation("relu"))
-
+#model.add(Dropout(0.5))
 
 model.add(Dense(4))
 model.add(Activation('sigmoid'))
 
 model.compile(optimizer="adam",loss="sparse_categorical_crossentropy",metrics=['accuracy'])
 
-value = input("Please enter the number of times to train:\n")
+value = input("Please enter the number of times to train:\n>")
 value = int(value)
 
-model.fit(X, y, batch_size=32, epochs=value, validation_split=0.1)
+model.fit(X, y, batch_size=256, epochs=value, validation_split=0.1)
 
 def accur():
     history = model.fit(X, y, batch_size=32, epochs=value, validation_split=0.1)
@@ -81,18 +81,33 @@ def accur():
     plt.title('Training and Validation Loss')
     plt.show()
 
-predictions=model.predict([X])
 
-value = input("Please enter an integer:\n")
+#bruh = 'Untitled.jpg'
+#bruh2 = cv2.imread(bruh)
+#bruh2 = bruh2/255.0
+#bruh2 = np.expand_dims(bruh2, axis=0)
+#predictions=model.predict(bruh2)
+#print(np.argmax(bruh2))
+#print(CATAGORIES[int(np.argmax(cv2.imread(bruh)))])
+
+
+value = input("Please enter an integer: - (-1 to exit)\n>")
 value = int(value)
 
 while value!=-1:
     try :
-        print(CATAGORIES[int(np.argmax(predictions[value]))])
-        plt.imshow(X[value], cmap=plt.cm.binary)
+        bruh = 'Untitled.jpg'
+        bruh2 = cv2.imread(bruh)
+        bruh2 = bruh2/255.0
+        bruh2 = np.expand_dims(bruh2, axis=0)
+        predictions=model.predict(bruh2)
+
+        print(CATAGORIES[int(np.argmax(predictions))])
+        plt.imshow(bruh)
         plt.show()
 
-        value = input("Please enter an integer: - (-1 to exit)\n")
+        value = input("Please enter an integer: - (-1 to exit)\n>")
         value = int(value)
     except Exception as e:
-        pass
+       value = input("Please enter an integer: - (-1 to exit)\n>")
+       value = int(value)
