@@ -6,11 +6,12 @@ import random
 import pickle
 
 
-inputos = "E:/Books/Project - Operation Lettuce/PythonApplication1/New folder"
+inputos = "E:/Books/Project - Operation Lettuce/PythonApplication1/PythonApplication1/New folder"
 DATADIR = inputos;
 CATAGORIES = ["alpha","beta","sigma","pi"]
 
 print(os.listdir(inputos))
+
 
 for category in CATAGORIES:
     path = os.path.join(DATADIR,category) #path to dir 
@@ -39,7 +40,7 @@ def create_training_data():
 
 create_training_data()
 
-print(len(training_data))
+
 random.shuffle(training_data)
 
 #for sample in training_data[:10]:
@@ -55,9 +56,6 @@ for features, label in training_data:
 
 X = np.array(X)#.reshape(-1,IMG_SIZE,IMG_SIZE,1)
 y = np.array(y)
-
-print(len(X))
-print(len(y))
 
 pickle_out = open("X.pickle" , "wb")
 pickle.dump(X, pickle_out)
